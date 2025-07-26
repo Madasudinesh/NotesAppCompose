@@ -40,7 +40,7 @@ import com.example.notesappcompose.Model
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun QuoteListItem(quote:Model,lamda:()->Unit) {
+fun QuoteListItem(quote:Model,lamda:(quote:Model)->Unit) {
 Card(elevation = CardDefaults.cardElevation(10.dp),
     modifier = Modifier.clickable{lamda}.padding(8.dp)) {
 

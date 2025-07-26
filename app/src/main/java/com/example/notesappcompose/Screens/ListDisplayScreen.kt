@@ -21,12 +21,10 @@ import com.example.notesappcompose.Model
 
 
 @Composable
-fun ListScreen(data: Array<Model>, lamda:()->Unit){
+fun ListScreen(data: Array<Model>, lamda:(quote:Model)->Unit){
     LazyColumn(content ={
         items(data){
-       QuoteListItem(it){
-            lamda
-       }
+       QuoteListItem(it, lamda)
         }
     } )
 }

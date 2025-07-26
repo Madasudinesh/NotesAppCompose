@@ -16,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.notesappcompose.Screens.ListScreen
+import com.example.notesappcompose.Screens.QuoteScreen
 import com.example.notesappcompose.ui.theme.NotesAppComposeTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -30,7 +31,6 @@ import kotlinx.coroutines.launch
         setContent {
 
             CoroutineScope(Dispatchers.IO).launch {
-                delay(10000)
                 DataManager.loadAssetsFromFile(applicationContext)
             }
 
@@ -43,10 +43,20 @@ import kotlinx.coroutines.launch
 @Composable
 fun App(){
 if(DataManager.isDataLoaded.value){
-    ListScreen(DataManager.data){
+    if(DataManager.currentPage.value== Pages.LISTING){
+        ListScreen(DataManager.data){
+            DataManager.switchPages(it)
+        }
+    }else{
+        DataManager.currentQuote?.let { QuoteScreen(it) }
     }
 }
 }
+
+ enum class Pages{
+     LISTING,
+     DETAIL
+ }
 
 
 
