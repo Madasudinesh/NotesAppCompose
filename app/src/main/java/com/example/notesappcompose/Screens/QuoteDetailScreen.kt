@@ -1,5 +1,6 @@
 package com.example.notesappcompose.Screens
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -26,10 +27,15 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.notesappcompose.DataManager
 import com.example.notesappcompose.Model
 
 @Composable
 fun QuoteScreen(quote:Model){
+    BackHandler {
+        DataManager.switchPages(null)
+    }
+
     Box(contentAlignment = Alignment.Center,
         modifier = Modifier.fillMaxSize(1f)
             .background(Brush.sweepGradient(
