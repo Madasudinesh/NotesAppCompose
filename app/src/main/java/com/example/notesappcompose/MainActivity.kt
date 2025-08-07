@@ -47,6 +47,7 @@ if(DataManager.isDataLoaded.value){
         ListScreen(DataManager.data){
             DataManager.switchPages(it)
         }
+
     }else{
         DataManager.currentQuote?.let { QuoteScreen(it) }
     }

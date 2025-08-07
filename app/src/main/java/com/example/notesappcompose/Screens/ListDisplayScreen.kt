@@ -29,20 +29,3 @@ fun ListScreen(data: Array<Model>, lamda:(quote:Model)->Unit){
     } )
 }
 
-@Preview( showSystemUi = true)
-@Composable
-fun Previews(){
-    Column(
-        modifier = Modifier.height(200.dp)) {
-
-        Text( text = "Quote app",
-            modifier = Modifier.padding(PaddingValues(10.dp))
-                .height(50.dp)
-                .fillMaxWidth(1f),
-            textAlign = TextAlign.Center)
-
-
-        QuoteListItem(Model("Don't believe too much, because behavior changes with time","Dinesh")){
-        }
-    }
-}
