@@ -25,7 +25,7 @@ object DataManager {
         isDataLoaded.value = true
     }
 
-    fun switchPages(quote:Model?){
+    fun  switchPages(quote:Model?){
         if(currentPage.value== Pages.LISTING){
             currentQuote = quote
             currentPage.value = Pages.DETAIL
